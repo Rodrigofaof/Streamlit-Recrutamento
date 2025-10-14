@@ -5,7 +5,7 @@ import numpy as np
 import os 
 
 st.set_page_config(layout="wide")
-st.title("Análise Dinâmica de Panelistas: Treemap Flexível")
+st.title("National Fallout")
 
 # --- Variáveis de Configuração ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
@@ -39,7 +39,6 @@ def load_and_group_data(file_name):
     else:
         try:
             df_seus_dados = pd.read_csv(file_path, sep=',')
-            st.success(f"Arquivo '{file_name}' carregado com sucesso.")
         except Exception as e:
             st.error(f"Erro ao ler o arquivo CSV. Detalhe: {e}")
             return pd.DataFrame()
