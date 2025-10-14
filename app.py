@@ -5,20 +5,15 @@ import numpy as np
 import os 
 
 st.set_page_config(layout="wide")
-st.title("Análise Dinâmica de Panelistas: Treemap Flexível")
+st.title("National Fallout")
 
-# --- VARIÁVEIS DE CONFIGURAÇÃO FÁCIL ---
+# --- Variáveis de Configuração ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
 VALUE_COL = 'Panelists'
 ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender'] 
 FILTER_COL_1 = 'Country'
 FILTER_COL_2 = 'Recruit_Source'
-# NOVO: Altura padrão do gráfico em pixels. Aumente este valor para mais altura.
-PLOT_HEIGHT = 700 
-# ----------------------------------------
 
-
-# --- 1. CARREGAMENTO E AGRUPAMENTO DE DADOS (USANDO CACHE) ---
 
 @st.cache_data
 def load_and_group_data(file_name):
@@ -42,7 +37,6 @@ def load_and_group_data(file_name):
     else:
         try:
             df_seus_dados = pd.read_csv(file_path, sep=',')
-            st.success(f"Arquivo '{file_name}' carregado com sucesso.")
         except Exception as e:
             st.error(f"Erro ao ler o arquivo CSV. Detalhe: {e}")
             return pd.DataFrame()
@@ -66,9 +60,6 @@ df_agg = load_and_group_data(DATA_FILE)
 if df_agg.empty:
     st.stop()
 
-
-# --- 2. WIDGETS DE FILTRO ---
-
 country_list = sorted(df_agg[FILTER_COL_1].unique().tolist())
 selected_country = st.sidebar.selectbox(
     f'1. Selecione o {FILTER_COL_1}:',
@@ -87,9 +78,6 @@ selected_hierarchy = st.sidebar.multiselect(
     options=ALL_HIERARCHY_COLS,
     default=ALL_HIERARCHY_COLS
 )
-
-
-# --- 3. LÓGICA DE FILTRAGEM E PLOTAGEM ---
 
 if selected_country and selected_sources and selected_hierarchy:
     
@@ -120,8 +108,7 @@ if selected_country and selected_sources and selected_hierarchy:
 
         fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
         
-        # NOVO: Passando a altura para o Streamlit
-        st.plotly_chart(fig, use_container_width=True, height=PLOT_HEIGHT)
+        st.plotly_chart(fig, use_container_width=True)
 
 elif not selected_hierarchy:
     st.warning("Selecione pelo menos uma categoria (Região, Idade ou Gênero) para montar o Treemap.")
