@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import numpy as np
+import plotly.express as px
 import os 
+import plotly
 
 st.set_page_config(layout="wide")
-st.title("Análise Dinâmica de Panelistas: Treemap Flexível")
+st.title("National Fallout")
 
 # --- Variáveis de Configuração ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
@@ -39,7 +40,6 @@ def load_and_group_data(file_name):
     else:
         try:
             df_seus_dados = pd.read_csv(file_path, sep=',')
-            st.success(f"Arquivo '{file_name}' carregado com sucesso.")
         except Exception as e:
             st.error(f"Erro ao ler o arquivo CSV. Detalhe: {e}")
             return pd.DataFrame()
@@ -100,20 +100,16 @@ if selected_country and selected_sources and selected_hierarchy:
     else:
         df_plot = df_filtered.groupby(selected_hierarchy)['Total_Values'].sum().reset_index()
         
-        # O Plotly precisa de uma coluna de cor presente em df_plot.
-        # Se a hierarquia escolhida for [Age, Gender, Region], a cor será Age.
-        color_col = selected_hierarchy[0]
-
         fig = px.treemap(
             df_plot,
             path=selected_hierarchy, 
             values='Total_Values',
             title=f'Distribuição de {VALUE_COL} em {selected_country} (Fonte: {source_title})',
-            color=color_col, # Usando a primeira coluna da hierarquia para definir a cor
-            # color_continuous_scale removido
+            color='Total_Values',
+            color_continuous_scale='Blues'
         )
         
-        # Configurações de texto e hover
+        # AQUI ESTÁ A MUDANÇA: .2f para formatar em 2 casas decimais
         fig.update_traces(
             textinfo='label+percent parent+percent root',
             hovertemplate=f'{VALUE_COL}: %{{value}}<br>Percentual Pai: %{{percentParent:.2f}}<br>Percentual Total: %{{percentRoot:.2f}}<extra></extra>',
