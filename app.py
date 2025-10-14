@@ -5,14 +5,17 @@ import numpy as np
 import os 
 
 st.set_page_config(layout="wide")
-st.title("National Fallout")
+st.title("Análise Dinâmica de Panelistas: Treemap Flexível")
 
-# --- Variáveis de Configuração ---
+# --- VARIÁVEIS DE CONFIGURAÇÃO FÁCIL ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
 VALUE_COL = 'Panelists'
 ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender'] 
 FILTER_COL_1 = 'Country'
 FILTER_COL_2 = 'Recruit_Source'
+# NOVO: Altura padrão do gráfico em pixels. Aumente este valor para mais altura.
+PLOT_HEIGHT = 700 
+# ----------------------------------------
 
 
 # --- 1. CARREGAMENTO E AGRUPAMENTO DE DADOS (USANDO CACHE) ---
@@ -39,6 +42,7 @@ def load_and_group_data(file_name):
     else:
         try:
             df_seus_dados = pd.read_csv(file_path, sep=',')
+            st.success(f"Arquivo '{file_name}' carregado com sucesso.")
         except Exception as e:
             st.error(f"Erro ao ler o arquivo CSV. Detalhe: {e}")
             return pd.DataFrame()
@@ -99,8 +103,6 @@ if selected_country and selected_sources and selected_hierarchy:
     else:
         df_plot = df_filtered.groupby(selected_hierarchy)['Total_Values'].sum().reset_index()
         
-        # O Plotly precisa de uma coluna de cor presente em df_plot.
-        # Se a hierarquia escolhida for [Age, Gender, Region], a cor será Age.
         color_col = selected_hierarchy[0]
 
         fig = px.treemap(
@@ -108,11 +110,9 @@ if selected_country and selected_sources and selected_hierarchy:
             path=selected_hierarchy, 
             values='Total_Values',
             title=f'Distribuição de {VALUE_COL} em {selected_country} (Fonte: {source_title})',
-            color=color_col, # Usando a primeira coluna da hierarquia para definir a cor
-            # color_continuous_scale removido
+            color=color_col,
         )
         
-        # Configurações de texto e hover
         fig.update_traces(
             textinfo='label+percent parent+percent root',
             hovertemplate=f'{VALUE_COL}: %{{value}}<br>Percentual Pai: %{{percentParent:.2f}}<br>Percentual Total: %{{percentRoot:.2f}}<extra></extra>',
@@ -120,7 +120,8 @@ if selected_country and selected_sources and selected_hierarchy:
 
         fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
         
-        st.plotly_chart(fig, use_container_width=True)
+        # NOVO: Passando a altura para o Streamlit
+        st.plotly_chart(fig, use_container_width=True, height=PLOT_HEIGHT)
 
 elif not selected_hierarchy:
     st.warning("Selecione pelo menos uma categoria (Região, Idade ou Gênero) para montar o Treemap.")
