@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 import os 
+import plotly
 
 st.set_page_config(layout="wide")
 st.title("National Fallout")
