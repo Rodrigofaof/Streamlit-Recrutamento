@@ -10,7 +10,7 @@ st.title("National Fallout")
 # --- Variáveis de Configuração ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
 VALUE_COL = 'Panelists'
-ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender'] 
+ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender','State','SEL','City','Recruit_Source'] 
 FILTER_COL_1 = 'Country'
 FILTER_COL_2 = 'Recruit_Source'
 
