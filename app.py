@@ -7,10 +7,9 @@ import os
 st.set_page_config(layout="wide")
 st.title("National Fallout")
 
-# --- Variáveis de Configuração ---
 DATA_FILE = 'Treemap Recrutamento.csv' 
 VALUE_COL = 'Panelists'
-ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender','State','SEL','City','Recruit_Source'] 
+ALL_HIERARCHY_COLS = ['Region', 'Age', 'Gender','State','SEL','Recruit_Source','City'] 
 FILTER_COL_1 = 'Country'
 FILTER_COL_2 = 'Recruit_Source'
 
