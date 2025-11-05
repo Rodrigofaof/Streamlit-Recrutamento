@@ -1,0 +1,128 @@
+Region ID,Name,Country ID
+1,Ciudad de Buenos Aires,1
+2,GBA,1
+3,Centro,1
+4,Cuyo,1
+5,Noreste,1
+6,Noroeste,1
+7,Patagonia,1
+4,South-Central,15
+5,West,15
+6,East,15
+7,Southeast,15
+8,Southwest,15
+1,Santa Cruz,2
+2,La Paz,2
+3,Cochabamba,2
+4,Other,2
+1,Austral Patagonia,6
+2,Big North,6
+3,Central,6
+4,Little North,6
+5,Metropolitana de Santiago,6
+6,Southern,6
+1,Amazonica,7
+1,Centro-Oeste,3
+2,Norte,3
+3,Nordeste,3
+4,Sul,3
+5,Sudeste,3
+1,Northwest,15
+2,Northeast,15
+3,North-Central,15
+7,Region VII- Noroccidental,13
+8,Region VIII- Pet,13
+1,Centro Occidental,14
+2,Centro Oriental,14
+3,Noroccidental,14
+4,Nororiental,14
+5,Occidental,14
+6,Sur,14
+1,Region I,16
+2,Region II,16
+3,Region III,16
+4,Region IV,16
+1,Panama,17
+2,Chiriqui,17
+3,Colon,17
+4,Coclé,17
+5,Other,17
+1,Occidental,18
+2,Oriental,18
+1,Central,19
+2,Lima and Callao,19
+3,North,19
+4,South,19
+1,San Juan,20
+2,Other,20
+1,Centro-sur,23
+2,Este,23
+3,Litoral,23
+4,Metropolitana,23
+5,Norte,23
+1,Capital,24
+2,Central,24
+3,Centroccidental,24
+4,Guayana,24
+5,Insular,24
+6,Los Andes,24
+7,Los Llanos,24
+8,Nororiental,24
+9,Zuliana,24
+8,Provincia de Buenos Aires,1
+1,Andalucía,21
+2,Aragón,21
+3,Canarias,21
+4,Cantabria,21
+5,Castilla y León,21
+6,Castilla-La Mancha,21
+7,Cataluña,21
+8,Ciudad Autónoma de Ceuta,21
+9,Ciudad Autónoma de Melilla,21
+10,Comunidad de Madrid,21
+11,Comunidad Foral de Navarra,21
+12,Comunidad Valenciana,21
+13,Extremadura,21
+14,Galicia,21
+15,Islas Baleares,21
+16,La Rioja,21
+17,País Vasco,21
+18,Principado de Asturias,21
+19,Región de Murcia,21
+1,Central Region,28
+2,East Region,28
+3,North Region,28
+4,North-East Region,28
+5,West Region,28
+2,Atlantic,7
+3,Central,7
+4,Oriental,7
+5,Orinoquia,7
+6,Pacific,7
+1,San Jose,8
+2,Alajuela,8
+3,Cartago,8
+4,Other,8
+1,Cibao Nordeste,10
+2,Cibao Noroeste,10
+3,Cibao Norte,10
+4,Cibao Sur,10
+5,Del Valle,10
+6,Enriquillo,10
+7,Higuamo,10
+8,Metropolitana,10
+9,Valdesia,10
+10,Yuma,10
+1,Amazonica,11
+2,Costa/Cost,11
+3,Sierra,11
+1,Central,12
+2,Occidental,12
+3,Oriental,12
+4,Paracentral,12
+1,Region I- Metropolitana,13
+2,Region II- Norte,13
+3,Region III- Nororiental,13
+4,Region IV- Suroriental,13
+5,Region V- Central,13
+6,Region VI- Suroccidental,13

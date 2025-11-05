@@ -1,4 +1,8 @@
-streamlit
+mysql-connector-python
 pandas
 numpy
-plotly
+rapidfuzz
+python-dotenv
+openpyxl
+statsmodels
+requests
